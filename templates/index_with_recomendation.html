@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Sistem Rekomendasi UMKM</title>
+    <meta name="description"
+        content="Sistem rekomendasi merupakan teknik untuk menghasilkan usulan item yang akan dimanfaatkan oleh pengguna. “Item” merupakan istilah yang digunakan untuk menyatakan apa yang direkomendasikan oleh sistem kepada pengguna. Usulan tersebut dihasilkan berdasarkan berbagai proses pengambilan keputusan seperti kata apa yang akan dicari atau buku apa yang akan dibaca. Metode content based filtring merupakan metode rekomendasi dari deskripsi produk dan kemudian menemukan kesamaan antara profil item dan profil pengguna untuk direkomendasikan">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic">
+    <link rel="stylesheet" href="static/fonts/font-awesome.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand bg-light navigation-clean">
+        <div class="container"><a class="navbar-brand" href="#"><strong>Sistem</strong> Rekomendasi UMKM&nbsp;&nbsp;</a><button
+                data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"></button>
+            <div class="collapse navbar-collapse" id="navcol-1"></div>
+        </div>
+    </nav>
+    <header class="text-center text-white masthead"
+        style="background:url('static/img/umkm.png')no-repeat center center;background-size:cover;">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 mx-auto position-relative">
+                    <h1 class="mb-5">Masukan Kata Tentang UMKM</h1>
+                </div>
+                <div class="col-md-10 col-lg-8 col-xl-7 mx-auto position-relative">
+                    <form action="search" method="get">
+                        <div class="row">
+                            <div class="col-12 col-md-9 mb-2 mb-md-0">
+                                {{form.keyword(class_="form-control form-control-lg shadow-sm")}}</div>
+                            <div class="col-12 col-md-3"><button type="submit"
+                                    class="btn btn-primary btn-lg">Cari &nbsp;<i class="fa fa-search"></i></button></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header><br>
+
+    <div class="container">
+        {% if not data %}
+        <center><h3> </h3></center>&nbsp;&nbsp;
+        {% else %}
+        <center><h3>Top Rekomendasi</h3></center>&nbsp;&nbsp;
+        <div class="row">
+            {% for i in range(start, end) %}
+            <div class="col-md-3 mb-3">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">{{data[i][1]}}</h5>
+                    <hr>
+                    <p class="card-text"><b>Bahan Utama : </b>{{data[i][2]}}, <b>Varian : </b>{{data[i][3]}}, <b>Jenis Produk : </b>{{data[i][4]}}, 
+                        <b>Tipe Produk : </b>{{data[i][5]}}, <b>Asal Daerah : </b>{{data[i][6]}}, <b>Kesulitan : </b>{{data[i][7]}}, <b>Harga : </b>{{data[i][8]}}, 
+                        <b>Status Popular : </b>{{data[i][9]}}, <b>Level Popular : </b>{{data[i][10]}}, <b>Popular Di : </b>{{data[i][11]}}, 
+                        <b>Modal : </b>{{data[i][12]}}, <b>Tempat Penjual : </b>{{data[i][13]}}
+                    </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+    <br>
+    <section class="showcase"></section>
+    <section class="text-center bg-light testimonials">
+        
+        <!--
+        <h1>Universitas Jenderal Achmad Yani</h1>
+        <h1 style="font-size: 29.880000000000006px;">Fakultas Sains dan Informatika</h1>
+        <p style="font-weight: bold;">Teknik Informatika</p>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="mx-auto testimonial-item mb-5 mb-lg-0"></div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mx-auto testimonial-item mb-5 mb-lg-0"><img class="rounded-circle img-fluid mb-3"
+                            src="static/img/testimonials-3.jpg">
+                        <h5>Khoirun Nissa M</h5>
+                        <p class="font-weight-light mb-0">3411171001</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mx-auto testimonial-item mb-5 mb-lg-0"></div>
+                </div>
+            </div>
+        </div>
+        -->
+    </section>
+    
+    <footer class="bg-light footer fixed-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 text-center text-lg-start my-auto h-100">
+                    <!--
+                    <ul class="list-inline mb-2">
+                        <li class="list-inline-item"><a href="#">About</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Contact</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Terms of &nbsp;Use</a></li>
+                        <li class="list-inline-item"><span>⋅</span></li>
+                        <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+                    </ul>
+                    -->
+                    <p class="text-muted small mb-4 mb-lg-0">© Sistem Rekomendasi UMKM 2023. Made with 🖤</p>
+                </div>
+                <div class="col-lg-6 text-center text-lg-end my-auto h-100">
+                    <ul class="list-inline mb-0">
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-facebook fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-twitter fa-2x fa-fw"></i></a></li>
+                        <li class="list-inline-item"><a href="#"><i class="fa fa-instagram fa-2x fa-fw"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+<script>
+    $("#keyword").focus();
+</script>
+
+</html>
